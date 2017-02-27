@@ -18,13 +18,13 @@ use ClickToValid\Webhook\Factory\RequestSentWebhookFactory;
 
 class Manager
 {
-    const TYPE_REQUEST_OPENED          = 'request-opened';
-    const TYPE_FILE_VIEWED             = 'file-viewed';
-    const TYPE_RECIPIENT_ANSWERED      = 'recipient-answered';
-    const TYPE_REQUEST_FULLY_ANSWERED  = 'request-answered-fully';
-    const TYPE_REQUEST_EXPIRED         = 'request-expired';
-    const TYPE_REQUEST_MANUAL_REVIVED  = 'request-manual-revived';
-    const TYPE_REQUEST_SENT            = 'request-sent';
+    const TYPE_REQUEST_OPENED         = 'request-opened';
+    const TYPE_FILE_VIEWED            = 'file-viewed';
+    const TYPE_RECIPIENT_ANSWERED     = 'recipient-answered';
+    const TYPE_REQUEST_FULLY_ANSWERED = 'request-answered-fully';
+    const TYPE_REQUEST_EXPIRED        = 'request-expired';
+    const TYPE_REQUEST_MANUAL_REVIVED = 'request-manual-revived';
+    const TYPE_REQUEST_SENT           = 'request-sent';
 
     /**
      * Parse received data

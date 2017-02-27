@@ -10,7 +10,7 @@ class RequestExpiredWebhookFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testParseData()
     {
-        $data = json_decode(json_encode([
+        $data    = json_decode(json_encode([
             'date' => '2017-02-01T09:00:00+00:00',
             'data' => [
                 'request' => [

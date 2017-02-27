@@ -15,7 +15,7 @@ class RequestManualRevivedWebhookFactory extends AbstractModelFactory
     public static function parseData(\stdClass $data)
     {
         $webhook = parent::parseDateFromData($data, new RequestManualRevivedWebhook());
-        $data = $data->data;
+        $data    = $data->data;
 
         if (property_exists($data, 'request') && property_exists($data->request, 'data')) {
             $webhook->setRequest(RequestFactory::parseData($data->request->data));

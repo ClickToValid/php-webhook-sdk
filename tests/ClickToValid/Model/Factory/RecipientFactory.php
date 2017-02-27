@@ -43,7 +43,7 @@ class RecipientFactoryTest extends \PHPUnit_Framework_TestCase
 
         // Tests an exception is thrown if date_answer not well formatted
         $data->date_answer = '2017-02-not-well-formattedT09:00:00+00:00';
-        $exception = false;
+        $exception         = false;
 
         try {
             $recipient = RecipientFactory::parseData($data);

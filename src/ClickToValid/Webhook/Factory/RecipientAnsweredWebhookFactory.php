@@ -16,7 +16,7 @@ class RecipientAnsweredWebhookFactory extends AbstractModelFactory
     public static function parseData(\stdClass $data)
     {
         $webhook = parent::parseDateFromData($data, new RecipientAnsweredWebhook());
-        $data = $data->data;
+        $data    = $data->data;
 
         if (property_exists($data, 'recipient') && property_exists($data->recipient, 'data')) {
             $webhook->setRecipient(RecipientFactory::parseData($data->recipient->data));

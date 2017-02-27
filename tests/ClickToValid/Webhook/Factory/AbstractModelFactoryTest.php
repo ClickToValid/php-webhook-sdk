@@ -27,7 +27,7 @@ class AbstractModelFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($exception);
 
         // Tests not well formated date thrown WebhookDateNotValidException
-        $exception = false;
+        $exception  = false;
         $data->date = 'not-well-formatted';
         try {
             AbstractModelFactory::parseDateFromData($data, $webhook);

@@ -17,7 +17,7 @@ class FileViewedWebhookFactory extends AbstractModelFactory
     public static function parseData(\stdClass $data)
     {
         $webhook = parent::parseDateFromData($data, new FileViewedWebhook());
-        $data = $data->data;
+        $data    = $data->data;
 
         if (property_exists($data, 'file') && property_exists($data->file, 'data')) {
             $webhook->setFile(FileFactory::parseData($data->file->data));
