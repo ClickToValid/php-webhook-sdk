@@ -1,0 +1,32 @@
+{
+    "name": "ctv/php-webhook-sdk",
+    "type": "library",
+    "description": "SDK to manage ClickToValid Webhooks easily.",
+    "keywords": [
+        "clicktovalid",
+        "webhook",
+        "sdk"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ClickToValid"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ClickToValid\\": "src/ClickToValid/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ClickToValid\\Tests\\": "tests/ClickToValid/"
+        }
+    }
+}
