@@ -18,7 +18,7 @@ $webhook = ClickToValid\Manager::parseData($data);
 if ($webhook instanceof ClickToValid\Webhook\RequestSentWebhook) {
     $to      = 'johndoe@mycompany.com';
     $title   = 'A new ClickToValid request was sent';
-    $message = 'Hi John, the request "'.$webhook->getRequest()->getName().'" was sent at '.$webhook->getDate()->format('Y-m-d H:i:s').' by "'.$webhook->getRecipient()->getFirstname().'".';
+    $message = 'Hi John, the request "'.$webhook->getRequest()->getName().'" was sent at '.$webhook->getDate()->format('Y-m-d H:i:s').' by "'.$webhook->getRequest()->getSender()->getFullname().'".';
     mail($to, $title, $message);
 }
 ```
