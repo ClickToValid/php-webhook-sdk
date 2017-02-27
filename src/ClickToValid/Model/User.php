@@ -30,6 +30,20 @@ class User
     private $lastname;
 
     /**
+     * Helper to get fullname of user, managing the fact his profile is completed or not
+     *
+     * @return string
+     */
+    public function getFullname()
+    {
+        if ($this->firstname && $this->lastname) {
+            return $this->firstname.' '.$this->lastname;
+        }
+
+        return $this->email;
+    }
+
+    /**
      * @return string
      */
     public function getId()
