@@ -13,11 +13,7 @@ class RequestSentWebhookFactoryTest extends \PHPUnit_Framework_TestCase
         $data    = json_decode(json_encode([
             'date' => '2017-02-01T09:00:00+00:00',
             'data' => [
-                'request' => [
-                    'data' => [
-                        'id' => '4ab717c1-3e8b-4ec6-b72b-93ccffb280dc',
-                    ],
-                ],
+                'id' => '4ab717c1-3e8b-4ec6-b72b-93ccffb280dc',
             ],
         ]));
         $webhook = RequestSentWebhookFactory::parseData($data);

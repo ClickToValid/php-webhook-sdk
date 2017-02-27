@@ -68,5 +68,61 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(RequestManualRevivedWebhook::class, Manager::parseData('{"type":"'.Manager::TYPE_REQUEST_MANUAL_REVIVED.'","date":"2017-02-01T09:00:00+00:00","data":{}}'));
         $this->assertInstanceOf(RequestOpenedWebhook::class, Manager::parseData('{"type":"'.Manager::TYPE_REQUEST_OPENED.'","date":"2017-02-01T09:00:00+00:00","data":{}}'));
         $this->assertInstanceOf(RequestSentWebhook::class, Manager::parseData('{"type":"'.Manager::TYPE_REQUEST_SENT.'","date":"2017-02-01T09:00:00+00:00","data":{}}'));
+
+        // Tests fields are completed
+        $data    = json_encode([
+            'type'            => Manager::TYPE_REQUEST_SENT,
+            'date'            => '2017-02-01T09:00:00+00:00',
+            'data' => [
+                'id'              => 'ca52d6ff-259f-4b02-b11e-11d72af4d111',
+                'name'            => 'CTV-8',
+                'topic'           => 'Lorem ipsum',
+                'has_message'     => true,
+                'state'           => 'sent',
+                'date_expiration' => '2017-02-01T09:00:00+00:00',
+                'date_sent'       => '2017-01-01T09:00:00+00:00',
+                'sender'          => [
+                    'data' => [
+                        'id'        => '8233f750-8281-41d0-bf55-3a0bb9e661ce',
+                        'username'  => 'JohnDoe',
+                        'email'     => 'johndoe@mycompany.com',
+                        'firstname' => 'John',
+                        'lastname'  => 'Doe',
+                    ],
+                ],
+                'recipients'      => [
+                    'data' => [
+                        [
+                            'id'          => 'bbd9fe0d-c184-4df4-90c8-6d8396728dbf',
+                            'answer'      => true,
+                            'data_answer' => '2017-02-01T09:00:00+00:00',
+                            'receiver'    => [
+                                'data' => [
+                                    'id'        => '8233f750-8281-41d0-bf55-3a0bb9e661ce',
+                                    'username'  => 'JohnDoe',
+                                    'email'     => 'johndoe@mycompany.com',
+                                    'firstname' => 'John',
+                                    'lastname'  => 'Doe',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                'files'           => [
+                    'data' => [
+                        [
+                            'id'        => 'c74d2879-379b-4b69-95c5-deb16eae2063',
+                            'filename'  => 'my-file.jpg',
+                            'size'      => 565,
+                            'extension' => 'jpg',
+                            'mimetype'  => 'image/jpeg',
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+        $webhook = Manager::parseData($data);
+        $this->assertNotNull($webhook->getRequest());
+        $this->assertEquals('ca52d6ff-259f-4b02-b11e-11d72af4d111', $webhook->getRequest()->getId());
     }
 }
